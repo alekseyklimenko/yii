@@ -200,7 +200,7 @@ if(".($this->allowEmpty ? "jQuery.trim(value)!='' && " : '').$condition.") {
 		if(preg_match_all('/^(.*)@(.*)$/',$value,$matches))
 		{
 			if(function_exists('idn_to_ascii'))
-				$value=$matches[1][0].'@'.idn_to_ascii($matches[2][0]);
+				$value=$matches[1][0].'@'.idn_to_ascii($matches[2][0], 0, INTL_IDNA_VARIANT_UTS46);
 			else
 			{
 				require_once(Yii::getPathOfAlias('system.vendors.Net_IDNA2.Net').DIRECTORY_SEPARATOR.'IDNA2.php');
